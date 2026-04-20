@@ -30,72 +30,88 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="bg-slate-50 py-20">
-      <div className="mx-auto max-w-2xl px-6">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-slate-900">Get In Touch</h2>
-          <p className="text-lg text-slate-600">
-            Ready to make a difference in your community or organisation?
+    <section className="relative overflow-hidden bg-[#efe6da] py-24">
+      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-amber-300/20 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-slate-900/10 blur-3xl" />
+
+      <div className="page-shell relative z-10 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="pt-4">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-800">
+            Get Involved
           </p>
+          <h2 className="mt-5 max-w-md text-5xl text-slate-900">
+            Let&apos;s build the next chapter together.
+          </h2>
+          <p className="mt-6 max-w-md text-lg leading-8 text-slate-600">
+            Reach out if you want to join the programme, bring Coach Group into your community,
+            or start a conversation about future corporate coaching.
+          </p>
+
+          <div className="mt-10 rounded-[2rem] border border-white/60 bg-white/60 p-6 backdrop-blur">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
+              Direct Contact
+            </p>
+            <p className="mt-4 text-2xl text-slate-900">info@coachgroup.co.za</p>
+          </div>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-6 rounded-3xl bg-white p-10 shadow-sm"
+          className="rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-[0_28px_80px_rgba(15,23,42,0.08)] backdrop-blur md:p-10"
         >
-          <div>
-            <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-700">
-              <User size={18} /> Full Name
-            </label>
-            <input
-              {...register('name')}
-              type="text"
-              className="w-full rounded-xl border border-slate-300 px-5 py-3 focus:border-blue-500 focus:outline-none"
-              placeholder="Your full name"
-            />
-            {errors.name ? <p className="mt-1 text-sm text-red-500">{errors.name.message}</p> : null}
-          </div>
+          <div className="grid gap-6">
+            <div>
+              <label className="mb-2 flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] text-slate-600">
+                <User size={16} /> Full Name
+              </label>
+              <input
+                {...register('name')}
+                type="text"
+                className="w-full rounded-2xl border border-slate-200 bg-stone-50 px-5 py-4 text-slate-900 outline-none transition focus:border-amber-500 focus:bg-white"
+                placeholder="Your full name"
+              />
+              {errors.name ? <p className="mt-2 text-sm text-red-500">{errors.name.message}</p> : null}
+            </div>
 
-          <div>
-            <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-700">
-              <Mail size={18} /> Email Address
-            </label>
-            <input
-              {...register('email')}
-              type="email"
-              className="w-full rounded-xl border border-slate-300 px-5 py-3 focus:border-blue-500 focus:outline-none"
-              placeholder="your@email.com"
-            />
-            {errors.email ? (
-              <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
-            ) : null}
-          </div>
+            <div>
+              <label className="mb-2 flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] text-slate-600">
+                <Mail size={16} /> Email Address
+              </label>
+              <input
+                {...register('email')}
+                type="email"
+                className="w-full rounded-2xl border border-slate-200 bg-stone-50 px-5 py-4 text-slate-900 outline-none transition focus:border-amber-500 focus:bg-white"
+                placeholder="your@email.com"
+              />
+              {errors.email ? (
+                <p className="mt-2 text-sm text-red-500">{errors.email.message}</p>
+              ) : null}
+            </div>
 
-          <div>
-            <label className="mb-1.5 block text-sm font-medium text-slate-700">Message</label>
-            <textarea
-              {...register('message')}
-              rows={5}
-              className="w-full resize-y rounded-xl border border-slate-300 px-5 py-3 focus:border-blue-500 focus:outline-none"
-              placeholder="Tell us how you'd like to get involved..."
-            />
-            {errors.message ? (
-              <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
-            ) : null}
-          </div>
+            <div>
+              <label className="mb-2 block text-sm font-medium uppercase tracking-[0.2em] text-slate-600">
+                Message
+              </label>
+              <textarea
+                {...register('message')}
+                rows={6}
+                className="w-full resize-y rounded-2xl border border-slate-200 bg-stone-50 px-5 py-4 text-slate-900 outline-none transition focus:border-amber-500 focus:bg-white"
+                placeholder="Tell us how you'd like to get involved..."
+              />
+              {errors.message ? (
+                <p className="mt-2 text-sm text-red-500">{errors.message.message}</p>
+              ) : null}
+            </div>
 
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full rounded-2xl bg-slate-900 py-4 font-semibold text-white transition hover:bg-slate-800 disabled:opacity-70"
-          >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-slate-800 disabled:opacity-70"
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </div>
         </form>
-
-        <p className="mt-8 text-center text-sm text-slate-500">
-          Or email us directly at <span className="font-medium">info@coachgroup.co.za</span>
-        </p>
       </div>
     </section>
   );
