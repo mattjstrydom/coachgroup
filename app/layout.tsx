@@ -1,16 +1,59 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import '../styles/globals.css';
+import type { Metadata } from 'next';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import '@/styles/globals.css';
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    return (
-        <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-        </div>
-    );
+export const metadata: Metadata = {
+  metadataBase: new URL('https://coachgroup.co.za'),
+  title: {
+    default: 'Coach Group | Community Coaching Programme South Africa',
+    template: '%s | Coach Group',
+  },
+  description:
+    'Coach Group offers a Community Coaching Programme in South Africa focused on leadership, coaching, mentoring, and practical community development.',
+  keywords: [
+    'Coach Group',
+    'community coaching programme',
+    'South Africa coaching programme',
+    'coaching and mentoring',
+    'community development',
+    'leadership development',
+    'accredited coaching course',
+  ],
+  openGraph: {
+    title: 'Coach Group | Creating a Conducive Community',
+    description:
+      'A Community Coaching Programme that empowers people to take responsibility for the enhancement and development of their own communities.',
+    url: 'https://coachgroup.co.za',
+    siteName: 'Coach Group',
+    locale: 'en_ZA',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Coach Group | Creating a Conducive Community',
+    description:
+      'Community Coaching Programme for leadership, mentoring, and practical community development in South Africa.',
+  },
+  alternates: {
+    canonical: '/',
+  },
 };
 
-export default Layout;
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className="min-h-screen bg-stone-50 text-slate-900 antialiased">
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-1 pt-20">{children}</main>
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
+}

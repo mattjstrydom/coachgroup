@@ -1,52 +1,53 @@
-import React from 'react';
-import HeroSection from '../components/HeroSection';
-import CoachingProgramCard from '../components/CoachingProgramCard';
-import TestimonialCard from '../components/TestimonialCard';
-import ContactForm from '../components/ContactForm';
-import Footer from '../components/Footer';
+import type { Metadata } from 'next';
+import ContactForm from '@/components/ContactForm';
 
-const testimonials = [
-  {
-    id: 1,
-    quote: "This program changed my life and my community!",
-    author: "Student A"
+export const metadata: Metadata = {
+  title: 'Contact',
+  description:
+    'Contact Coach Group to ask about the Community Coaching Programme, partnerships, community initiatives, or future corporate coaching opportunities.',
+  alternates: {
+    canonical: '/contact',
   },
-  {
-    id: 2,
-    quote: "I gained skills that I never thought I could have.",
-    author: "Student B"
-  },
-  {
-    id: 3,
-    quote: "The support from the coaches was incredible.",
-    author: "Student C"
-  }
-];
-
-const HomePage = () => {
-  return (
-    <div className="flex flex-col">
-      <HeroSection />
-      <section className="py-20 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center mb-10">Community Coaching Programme</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <CoachingProgramCard title="Adaptable Workshops" description="Industry or community specific workshops tailored to your needs." />
-          <CoachingProgramCard title="Why Us" description="Proudly South African, adaptable, and a winning combination." />
-          <CoachingProgramCard title="30-Person Impact Model" description="Visual breakdown showing benefits for Intern Coach, Students, and Community." />
-        </div>
-      </section>
-      <section className="py-20">
-        <h2 className="text-3xl font-bold text-center mb-10">Testimonials</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map(testimonial => (
-            <TestimonialCard key={testimonial.id} quote={testimonial.quote} author={testimonial.author} />
-          ))}
-        </div>
-      </section>
-      <ContactForm />
-      <Footer />
-    </div>
-  );
 };
 
-export default HomePage;
+const contactReasons = [
+  'Bring Coach Group into a school, programme, or community initiative.',
+  'Explore a pilot or future-fit corporate coaching partnership.',
+  'Volunteer, collaborate, or ask about upcoming opportunities.',
+];
+
+export default function ContactPage() {
+  return (
+    <>
+      <section className="bg-slate-950 py-24 text-white">
+        <div className="page-shell">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">
+            Contact
+          </p>
+          <h1 className="mt-4 max-w-3xl text-5xl font-bold">Let&apos;s build something useful together.</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            Whether you want to partner with us, join a programme, or explore coaching for your
+            organisation, we would love to hear from you.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-16">
+        <div className="page-shell">
+          <div className="grid gap-6 md:grid-cols-3">
+            {contactReasons.map((reason) => (
+              <article
+                key={reason}
+                className="rounded-3xl border border-slate-200 bg-stone-50 p-6 text-slate-700 shadow-sm"
+              >
+                {reason}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ContactForm />
+    </>
+  );
+}

@@ -1,52 +1,56 @@
-import React from 'react';
-import HeroSection from '../components/HeroSection';
-import CoachingProgramCard from '../components/CoachingProgramCard';
-import TestimonialCard from '../components/TestimonialCard';
-import ContactForm from '../components/ContactForm';
-import Footer from '../components/Footer';
+import type { Metadata } from 'next';
 
-const testimonials = [
-  {
-    id: 1,
-    quote: "This program changed my life and my community!",
-    author: "Student A"
+export const metadata: Metadata = {
+  title: 'Corporate Coaching',
+  description:
+    'Explore Coach Group’s upcoming corporate coaching offering for organisations that want stronger leadership, practical coaching support, and healthier team culture.',
+  alternates: {
+    canonical: '/corporate-coaching',
   },
-  {
-    id: 2,
-    quote: "I gained skills that I never thought I could have.",
-    author: "Student B"
-  },
-  {
-    id: 3,
-    quote: "The support from the coaches was incredible.",
-    author: "Student C"
-  }
-];
-
-const HomePage = () => {
-  return (
-    <div className="flex flex-col">
-      <HeroSection />
-      <section className="py-20 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center mb-10">Community Coaching Programme</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <CoachingProgramCard title="Adaptable Workshops" description="Industry or community specific workshops tailored to your needs." />
-          <CoachingProgramCard title="Why Us" description="Proudly South African, adaptable, and a winning combination." />
-          <CoachingProgramCard title="30-Person Impact Model" description="Visual breakdown showing benefits for Intern Coach, Students, and Community." />
-        </div>
-      </section>
-      <section className="py-20">
-        <h2 className="text-3xl font-bold text-center mb-10">Testimonials</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map(testimonial => (
-            <TestimonialCard key={testimonial.id} quote={testimonial.quote} author={testimonial.author} />
-          ))}
-        </div>
-      </section>
-      <ContactForm />
-      <Footer />
-    </div>
-  );
 };
 
-export default HomePage;
+export default function CorporateCoachingPage() {
+  return (
+    <>
+      <section className="bg-slate-900 py-24 text-white">
+        <div className="page-shell text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">
+            Corporate Coaching
+          </p>
+          <h1 className="mt-4 text-5xl font-bold md:text-6xl">12-Month Coaching Programme</h1>
+          <p className="mx-auto mt-6 max-w-3xl text-xl text-slate-300">
+            A structured coaching experience for organisations that want stronger leadership,
+            healthier culture, and more capable teams.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="page-shell grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <h2 className="text-3xl text-slate-900">What we are building</h2>
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+              The corporate programme is being shaped for organisations that want more than a
+              one-off workshop. It focuses on long-term coaching support, practical leadership
+              development, and measurable behavioural change.
+            </p>
+            <p className="mt-4 text-lg leading-8 text-slate-600">
+              Teams will be able to work through coaching cycles that strengthen communication,
+              accountability, and team trust over time.
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-slate-200 bg-stone-50 p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
+              Coming Soon
+            </p>
+            <p className="mt-4 text-slate-600">
+              If you want early updates or a pilot conversation, use the contact page and we can
+              start shaping the right offer with you.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
