@@ -37,7 +37,8 @@ const programmeHighlights = [
 const testimonials = [
   {
     id: 1,
-    quote: 'This programme changed how I show up for my family and my community.',
+    quote:
+      'The programme was educational and inspirational, it taught me to acknowledge and appreciate myself, also to understand others and manage day to day issues that we come across.',
     author: 'Student Feedback',
   },
   {
@@ -110,9 +111,7 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-700">
               Student Testimonials
             </p>
-            <h2 className="mt-4 text-4xl text-slate-900">
-              Here&apos;s what our students say.
-            </h2>
+            <h2 className="mt-4 text-4xl text-slate-900">Here&apos;s what our students say.</h2>
           </div>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">

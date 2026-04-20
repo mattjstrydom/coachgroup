@@ -18,12 +18,12 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/20 bg-slate-950/85 backdrop-blur">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
       <div className="mx-auto w-full max-w-6xl px-6 py-4">
         <div className="flex items-center justify-between gap-6">
           <Link
             href="/"
-            className="text-lg font-semibold tracking-[0.2em] text-white uppercase"
+            className="text-lg font-semibold tracking-[0.22em] text-white uppercase"
             onClick={closeMenu}
           >
             Coach Group

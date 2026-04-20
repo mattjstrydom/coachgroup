@@ -34,15 +34,18 @@ const pillars = [
 const deliveryModel = [
   {
     title: '10% Contact Sessions',
-    detail: '9 workshops, 15 modules, and an accredited coaching and mentoring course anchor the learning journey.',
+    detail:
+      '9 workshops, 15 modules, and an accredited coaching and mentoring course anchor the learning journey.',
   },
   {
     title: '40% Online and Community Sessions',
-    detail: 'Peer gatherings, support structures, and online coaching sessions extend the programme into everyday life.',
+    detail:
+      'Peer gatherings, support structures, and online coaching sessions extend the programme into everyday life.',
   },
   {
     title: '50% Self Study and Assignments',
-    detail: 'Independent learning and assignments help participants practise and apply the content consistently.',
+    detail:
+      'Independent learning and assignments help participants practise and apply the content consistently.',
   },
 ];
 
@@ -54,9 +57,7 @@ export default function CommunityCoachingPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">
             Community Coaching
           </p>
-          <h1 className="mt-4 max-w-4xl text-5xl font-bold">
-            Community Coaching Programme
-          </h1>
+          <h1 className="mt-4 max-w-4xl text-5xl font-bold">Community Coaching Programme</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             A programme to empower people to be involved in and take responsibility for the
             enhancement and development of their own communities.

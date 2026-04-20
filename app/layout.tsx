@@ -1,7 +1,20 @@
 import type { Metadata } from 'next';
+import { Cormorant_Garamond, Manrope } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import '@/styles/globals.css';
+
+const displayFont = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['500', '600', '700'],
+});
+
+const bodyFont = Manrope({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://coachgroup.co.za'),
@@ -46,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body className="min-h-screen bg-stone-50 text-slate-900 antialiased">
         <div className="flex min-h-screen flex-col">
           <Navbar />
