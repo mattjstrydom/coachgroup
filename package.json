@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "cf:build": "next build",
+    "cf:deploy": "next build && wrangler deploy"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
