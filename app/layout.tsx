@@ -41,6 +41,15 @@ export const metadata: Metadata = {
     siteName: 'Coach Group',
     locale: 'en_ZA',
     type: 'website',
+    images: [
+      {
+        // Replace with /images/og-default.jpg once exported from og-default.svg
+        url: '/images/og-default.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Coach Group — Community Coaching Programme South Africa',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

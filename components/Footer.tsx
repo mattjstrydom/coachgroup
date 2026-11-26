@@ -16,9 +16,9 @@ export default function Footer() {
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
               Coach Group
             </p>
-            <h2 className="mt-5 max-w-2xl text-4xl text-white">
+            <p className="mt-5 max-w-2xl text-4xl text-white">
               Community coaching, mentoring, and leadership development for South African communities.
-            </h2>
+            </p>
             <p className="mt-5 text-sm uppercase tracking-[0.2em] text-slate-400">
               info@coachgroup.co.za
             </p>
@@ -35,6 +35,18 @@ export default function Footer() {
               </Link>
             ))}
           </div>
+        </div>
+
+        <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} Coach Group. All rights reserved.</p>
+          <p>
+            Your personal information is processed in accordance with the Protection of Personal
+            Information Act (POPIA).{' '}
+            <Link href="/contact" className="underline underline-offset-2 hover:text-slate-300">
+              Contact us
+            </Link>{' '}
+            to exercise your rights.
+          </p>
         </div>
       </div>
     </footer>

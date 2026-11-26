@@ -8,6 +8,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/community-coaching', label: 'Community Coaching' },
   { href: '/corporate-coaching', label: 'Corporate Coaching' },
+  { href: '/clients', label: 'Clients' },
   { href: '/our-team', label: 'Our Team' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -40,7 +41,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden rounded-full bg-amber-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-amber-300 sm:inline-flex"
+              className="inline-flex rounded-full bg-amber-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
             >
               Get Involved
             </Link>
@@ -70,13 +71,6 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/contact"
-                className="mt-2 inline-flex justify-center rounded-2xl bg-amber-400 px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-300 sm:hidden"
-                onClick={closeMenu}
-              >
-                Get Involved
-              </Link>
             </div>
           </div>
         ) : null}

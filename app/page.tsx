@@ -107,9 +107,9 @@ export default function HomePage() {
                 Coaching and mentoring designed for real South African communities.
               </h2>
               <p className="mt-6 text-lg leading-8 text-slate-600">
-                The current Coach Group messaging emphasizes relevance, adaptability, and
-                practical responsibility. This programme is built to help people get involved,
-                make a difference, and become part of the change in their own communities.
+                Coach Group&apos;s Community Coaching Programme equips people to get involved,
+                make a difference, and take responsibility for the development of their own
+                communities — through structured coaching, mentoring, and real-world projects.
               </p>
             </div>
 
@@ -163,9 +163,9 @@ export default function HomePage() {
             </p>
             <h2 className="mt-4 text-5xl">A practical model that turns learning into action.</h2>
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              Based on the live site copy, the programme’s strengths are its adaptable workshop
-              structure, accredited learning path, and community-based support model. Those
-              elements work together to make the content relevant and actionable.
+              Nine adaptable workshops, an accredited learning path, and a community-based support
+              model work together to make the content relevant, practical, and lasting — built
+              specifically for the South African context.
             </p>
           </div>
 

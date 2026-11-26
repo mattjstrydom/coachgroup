@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -23,9 +24,21 @@ export default function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
+  const [submitted, setSubmitted] = React.useState(false);
+
   const onSubmit = async (data: ContactFormData) => {
-    console.log('Form submitted:', data);
-    alert('Thank you. Your message has been received and we will get back to you soon.');
+    setSubmitError(null);
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) {
+      setSubmitError('Something went wrong. Please email us directly at info@coachgroup.co.za');
+      return;
+    }
+    setSubmitted(true);
     reset();
   };
 
@@ -103,13 +116,22 @@ export default function ContactForm() {
               ) : null}
             </div>
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-slate-800 disabled:opacity-70"
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
+            {submitError ? (
+              <p className="rounded-2xl bg-red-50 px-5 py-4 text-sm text-red-700">{submitError}</p>
+            ) : null}
+            {submitted ? (
+              <p className="rounded-2xl bg-green-50 px-5 py-4 text-sm text-green-800">
+                Thank you — your message has been received. We&apos;ll be in touch soon.
+              </p>
+            ) : (
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-slate-800 disabled:opacity-70"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+            )}
           </div>
         </form>
       </div>

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 const tags = ['#GETInvolved', '#MAKEaDifference', '#BEtheChange'];
 const stats = [
@@ -13,50 +12,43 @@ const stats = [
 export default function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden bg-slate-950 text-white">
+      <style>{`
+        @keyframes hero-fade {
+          from { opacity: 0; transform: translateY(18px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .hero-animate {
+          animation: hero-fade 0.55s ease both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-animate { animation: none; }
+        }
+      `}</style>
+
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(199,159,90,0.28),transparent_26%),radial-gradient(circle_at_80%_30%,rgba(37,99,235,0.18),transparent_22%),linear-gradient(135deg,#08101f_0%,#0f172a_45%,#14213d_100%)]" />
       <div className="absolute inset-x-0 top-24 mx-auto h-72 w-72 rounded-full bg-amber-300/10 blur-3xl" />
-      <div className="absolute right-[-6rem] top-16 h-80 w-80 rounded-full border border-white/10 bg-white/5 blur-3xl" />
+      <div className="absolute right-0 top-16 h-80 w-80 rounded-full border border-white/10 bg-white/5 blur-3xl" />
 
       <div className="page-shell relative z-10 py-24 md:py-32">
         <div className="grid items-end gap-14 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
-            <motion.p
-              className="mb-6 text-sm font-semibold uppercase tracking-[0.35em] text-amber-300"
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45 }}
-            >
+            <p className="hero-animate mb-6 text-sm font-semibold uppercase tracking-[0.35em] text-amber-300" style={{ animationDelay: '0ms' }}>
               Community Coaching Programme
-            </motion.p>
+            </p>
 
-            <motion.h1
-              className="max-w-4xl text-6xl leading-[0.95] md:text-7xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.08 }}
-            >
+            <h1 className="hero-animate max-w-4xl text-6xl leading-[0.95] md:text-7xl" style={{ animationDelay: '80ms' }}>
               Coach Group
               <span className="mt-3 block text-4xl text-slate-200 md:text-5xl">
                 Creating a Conducive Community
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              className="mt-8 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.18 }}
-            >
+            <p className="hero-animate mt-8 max-w-3xl text-lg leading-8 text-slate-200 md:text-xl" style={{ animationDelay: '180ms' }}>
               A programme to empower people to be involved in and take responsibility for the
               enhancement and development of their own communities.
-            </motion.p>
+            </p>
 
-            <motion.div
-              className="mt-10 flex flex-wrap gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.28 }}
-            >
+            <div className="hero-animate mt-10 flex flex-wrap gap-4" style={{ animationDelay: '280ms' }}>
               <Link
                 href="/contact"
                 className="rounded-full bg-amber-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
@@ -69,14 +61,9 @@ export default function HeroSection() {
               >
                 Explore the Programme
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="mt-8 flex flex-wrap gap-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.36 }}
-            >
+            <div className="hero-animate mt-8 flex flex-wrap gap-3" style={{ animationDelay: '360ms' }}>
               {tags.map((tag) => (
                 <span
                   key={tag}
@@ -85,15 +72,10 @@ export default function HeroSection() {
                   {tag}
                 </span>
               ))}
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            className="glass-panel rounded-[2rem] p-6 text-white"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.24 }}
-          >
+          <div className="hero-animate glass-panel rounded-[2rem] p-6 text-white" style={{ animationDelay: '240ms' }}>
             <div className="rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.04))] p-7">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-200">
                 Why Us
@@ -116,7 +98,7 @@ export default function HeroSection() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
