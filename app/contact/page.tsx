@@ -21,10 +21,7 @@ export default function ContactPage() {
     <>
       <section className="bg-slate-950 py-24 text-white">
         <div className="page-shell">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">
-            Contact
-          </p>
-          <h1 className="mt-4 max-w-3xl text-5xl font-bold">Let&apos;s build something useful together.</h1>
+          <h1 className="max-w-3xl text-5xl font-bold">Let&apos;s build something useful together.</h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
             Whether you want to partner with us, join a programme, or explore coaching for your
             organisation, we would love to hear from you.

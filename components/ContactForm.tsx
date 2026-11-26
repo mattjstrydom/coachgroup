@@ -43,16 +43,10 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#efe6da] py-24">
-      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-amber-300/20 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-slate-900/10 blur-3xl" />
-
-      <div className="page-shell relative z-10 grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+    <section className="bg-[#efe6da] py-24">
+      <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="pt-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-800">
-            Get Involved
-          </p>
-          <h2 className="mt-5 max-w-md text-5xl text-slate-900">
+          <h2 className="max-w-md text-5xl text-slate-900">
             Let&apos;s build the next chapter together.
           </h2>
           <p className="mt-6 max-w-md text-lg leading-8 text-slate-600">
@@ -60,17 +54,15 @@ export default function ContactForm() {
             or start a conversation about future corporate coaching.
           </p>
 
-          <div className="mt-10 rounded-[2rem] border border-white/60 bg-white/60 p-6 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
-              Direct Contact
-            </p>
-            <p className="mt-4 text-2xl text-slate-900">info@coachgroup.co.za</p>
+          <div className="mt-10 rounded-[2rem] border border-slate-200 bg-white/60 p-6">
+            <p className="text-sm text-slate-500">Or email us directly</p>
+            <p className="mt-2 text-xl text-slate-900">info@coachgroup.co.za</p>
           </div>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="rounded-[2rem] border border-white/70 bg-white/85 p-8 shadow-[0_28px_80px_rgba(15,23,42,0.08)] backdrop-blur md:p-10"
+          className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_8px_32px_rgba(15,23,42,0.06)] md:p-10"
         >
           <div className="grid gap-6">
             <div>

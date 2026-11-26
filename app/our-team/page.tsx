@@ -62,10 +62,7 @@ export default function OurTeamPage() {
     <>
       <section className="bg-stone-100 py-24">
         <div className="page-shell">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">
-            Our Team
-          </p>
-          <h1 className="mt-4 max-w-4xl text-5xl text-slate-900">
+          <h1 className="max-w-4xl text-5xl text-slate-900">
             Experienced facilitators committed to real community change.
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
@@ -100,10 +97,8 @@ export default function OurTeamPage() {
                 </div>
 
                 <div className="py-2">
-                  <p className="text-sm font-semibold uppercase tracking-[0.28em] text-amber-700">
-                    {member.role}
-                  </p>
-                  <h2 className="mt-3 text-4xl text-slate-900">{member.name}</h2>
+                  <h2 className="text-4xl text-slate-900">{member.name}</h2>
+                  <p className="mt-2 text-base font-medium text-slate-500">{member.role}</p>
                   <div className="mt-6 space-y-4">
                     {member.bio.map((para) => (
                       <p key={para.slice(0, 40)} className="text-lg leading-8 text-slate-600">

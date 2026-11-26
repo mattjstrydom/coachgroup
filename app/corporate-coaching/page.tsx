@@ -14,10 +14,7 @@ export default function CorporateCoachingPage() {
     <>
       <section className="bg-slate-900 py-24 text-white">
         <div className="page-shell text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">
-            Corporate Coaching
-          </p>
-          <h1 className="mt-4 text-5xl font-bold md:text-6xl">12-Month Coaching Programme</h1>
+          <h1 className="text-5xl font-bold md:text-6xl">12-Month Coaching Programme</h1>
           <p className="mx-auto mt-6 max-w-3xl text-xl text-slate-300">
             A structured coaching experience for organisations that want stronger leadership,
             healthier culture, and more capable teams.
@@ -41,8 +38,8 @@ export default function CorporateCoachingPage() {
           </div>
 
           <div className="rounded-3xl border border-slate-200 bg-stone-50 p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
-              Coming Soon
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+              Coming soon
             </p>
             <p className="mt-4 text-slate-600">
               If you want early updates or a pilot conversation, use the contact page and we can

@@ -54,10 +54,7 @@ export default function CommunityCoachingPage() {
     <>
       <section className="bg-slate-950 py-24 text-white">
         <div className="page-shell">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">
-            Community Coaching
-          </p>
-          <h1 className="mt-4 max-w-4xl text-5xl font-bold">Community Coaching Programme</h1>
+          <h1 className="max-w-4xl text-5xl font-bold">Community Coaching Programme</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             A programme to empower people to be involved in and take responsibility for the
             enhancement and development of their own communities.
@@ -78,23 +75,22 @@ export default function CommunityCoachingPage() {
       <section className="bg-stone-100 py-20">
         <div className="page-shell">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-700">
-              Programme Time Allocation
-            </p>
-            <h2 className="mt-4 text-4xl text-slate-900">
+            <h2 className="text-4xl text-slate-900">
               A blended model for learning, support, and application.
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {deliveryModel.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
-              >
-                <h3 className="text-2xl font-semibold text-slate-900">{item.title}</h3>
-                <p className="mt-4 leading-8 text-slate-600">{item.detail}</p>
-              </article>
+          <div className="mt-12 flex flex-col divide-y divide-slate-200">
+            {deliveryModel.map((item, i) => (
+              <div key={item.title} className="flex gap-8 py-7 first:pt-0 last:pb-0">
+                <span className="mt-1 shrink-0 text-xs font-semibold tabular-nums text-amber-600">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="text-xl text-slate-900">{item.title}</h3>
+                  <p className="mt-2 leading-7 text-slate-600">{item.detail}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>

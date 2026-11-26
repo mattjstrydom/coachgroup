@@ -38,10 +38,7 @@ export default function ClientsPage() {
     <>
       <section className="bg-stone-100 py-24">
         <div className="page-shell">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">
-            Our Clients
-          </p>
-          <h1 className="mt-4 max-w-3xl text-5xl text-slate-900">
+          <h1 className="max-w-3xl text-5xl text-slate-900">
             Trusted by leading South African organisations.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">

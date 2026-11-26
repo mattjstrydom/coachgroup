@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 interface CoachingProgramCardProps {
@@ -17,18 +14,9 @@ export default function CoachingProgramCard({
   impactModel = false,
 }: CoachingProgramCardProps) {
   return (
-    <motion.article
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.25, ease: 'easeOut' }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/60 bg-white/80 p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur"
-    >
-      <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-amber-300/80 to-transparent" />
-
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-8 transition hover:-translate-y-1 hover:shadow-[0_24px_48px_rgba(15,23,42,0.10)]">
       <div className="mb-6 flex items-start justify-between gap-4">
-        <div className="rounded-full border border-slate-200 bg-stone-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
-          {impactModel ? 'Impact Layer' : 'Programme Detail'}
-        </div>
-        <div className="rounded-full border border-slate-200 bg-white p-2 text-slate-500 transition group-hover:border-amber-300 group-hover:text-amber-700">
+        <div className="rounded-full bg-amber-50 p-2 text-amber-600 transition group-hover:bg-amber-100">
           <ArrowUpRight size={16} />
         </div>
       </div>
@@ -37,18 +25,18 @@ export default function CoachingProgramCard({
       <p className="mt-5 flex-grow text-base leading-8 text-slate-600">{description}</p>
 
       {timeAllocation ? (
-        <div className="mt-8 rounded-2xl bg-slate-950 px-4 py-3 text-sm font-medium text-slate-100">
+        <div className="mt-8 rounded-xl bg-slate-950 px-4 py-3 text-sm font-medium text-slate-100">
           {timeAllocation}
         </div>
       ) : null}
 
       {impactModel ? (
-        <div className="mt-8 border-t border-slate-200 pt-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-700">
-            Intern Coach • Students • Community
+        <div className="mt-8 border-t border-slate-100 pt-6">
+          <p className="text-sm leading-6 text-slate-500">
+            Intern coach · Students · Community
           </p>
         </div>
       ) : null}
-    </motion.article>
+    </article>
   );
 }
