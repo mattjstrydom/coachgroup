@@ -2,91 +2,112 @@
 
 import Link from 'next/link';
 
-const facts = [
-  { label: 'Nine adaptable workshops, tailored to each community.' },
-  { label: 'An 18-month accredited learning journey.' },
-  { label: 'Active across South African communities since 2021.' },
-];
-
 export default function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden bg-slate-950 text-white">
+    <section
+      className="relative isolate flex min-h-screen flex-col overflow-hidden"
+      style={{ background: 'var(--ink)', color: 'white' }}
+    >
       <style>{`
-        @keyframes hero-fade {
-          from { opacity: 0; transform: translateY(16px); }
+        @keyframes hero-title {
+          from { opacity: 0; transform: translateY(32px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        .hero-animate {
-          animation: hero-fade 0.6s ease both;
+        @keyframes hero-fade {
+          from { opacity: 0; }
+          to   { opacity: 1; }
         }
+        .hero-title { animation: hero-title 1s cubic-bezier(0.16,1,0.3,1) both; }
+        .hero-sub   { animation: hero-fade 1s ease both; }
         @media (prefers-reduced-motion: reduce) {
-          .hero-animate { animation: none; }
+          .hero-title, .hero-sub { animation: none; }
         }
       `}</style>
 
-      <div className="page-shell relative z-10 py-28 md:py-36">
-        <div className="grid items-end gap-16 lg:grid-cols-[1.4fr_0.6fr]">
-          <div>
-            <h1
-              className="hero-animate text-7xl leading-[0.92] text-white md:text-8xl lg:text-9xl"
-              style={{ animationDelay: '0ms' }}
-            >
-              Creating a<br />
-              Conducive<br />
-              <span className="text-amber-300">Community.</span>
-            </h1>
+      {/* Grain texture overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          backgroundSize: '200px',
+        }}
+      />
 
-            <p
-              className="hero-animate mt-10 max-w-xl text-lg leading-8 text-slate-300 md:text-xl"
-              style={{ animationDelay: '120ms' }}
-            >
-              A South African coaching and mentoring programme that equips people to get
-              involved, make a difference, and take responsibility for their own communities.
-            </p>
+      {/* Main content — expands to fill space above CTA bar */}
+      <div className="page-shell relative z-10 flex flex-1 flex-col justify-center py-32 md:py-40">
+        {/* Year / origin mark */}
+        <p
+          className="hero-sub mb-10 text-xs font-semibold uppercase tracking-[0.32em]"
+          style={{ color: 'rgba(199,154,58,0.7)', animationDelay: '0ms' }}
+        >
+          South Africa · Est. 2021
+        </p>
 
-            <div
-              className="hero-animate mt-10 flex flex-wrap gap-4"
-              style={{ animationDelay: '240ms' }}
-            >
-              <Link
-                href="/contact"
-                className="rounded-full bg-amber-400 px-7 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-amber-300"
-              >
-                Get Involved
-              </Link>
-              <Link
-                href="/community-coaching"
-                className="rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/8"
-              >
-                Explore the Programme
-              </Link>
-            </div>
-          </div>
+        {/* Display headline */}
+        <h1
+          className="hero-title max-w-5xl font-display"
+          style={{
+            fontSize: 'clamp(3.5rem, 10vw, 9rem)',
+            fontWeight: 300,
+            lineHeight: 0.9,
+            letterSpacing: '-0.03em',
+            animationDelay: '80ms',
+          }}
+        >
+          Creating a<br />
+          <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>Conducive</em>
+          <br />Community.
+        </h1>
 
+        {/* Subline + divider */}
+        <div
+          className="hero-sub mt-12 flex max-w-2xl flex-col gap-6 md:flex-row md:items-start md:gap-10"
+          style={{ animationDelay: '240ms' }}
+        >
           <div
-            className="hero-animate hidden lg:block"
-            style={{ animationDelay: '180ms' }}
+            className="hidden md:block"
+            style={{ width: '1px', minHeight: '72px', background: 'rgba(255,255,255,0.15)', flexShrink: 0, marginTop: '4px' }}
+          />
+          <p
+            className="text-lg leading-8 md:text-xl"
+            style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '36ch' }}
           >
-            <div className="border-l border-white/15 pl-8">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-300/70">
-                Coach Group
-              </p>
-              <div className="mt-6 flex flex-col gap-6">
-                {facts.map((fact, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <span className="mt-1 text-amber-400/50 text-sm font-semibold tabular-nums">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <p className="text-base leading-7 text-slate-300">{fact.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+            A coaching and mentoring programme equipping South African communities through nine adaptable workshops and an 18-month accredited journey.
+          </p>
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 h-px bg-white/8" />
+      {/* CTA bar — pinned to bottom */}
+      <div
+        className="hero-sub relative z-10 border-t"
+        style={{
+          borderColor: 'rgba(255,255,255,0.1)',
+          background: 'rgba(255,255,255,0.03)',
+          animationDelay: '400ms',
+        }}
+      >
+        <div className="page-shell flex flex-col gap-4 py-7 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap gap-3">
+            <Link href="/contact" className="btn-primary" style={{ background: 'var(--gold)', color: 'var(--ink)' }}>
+              Get Involved
+            </Link>
+            <Link
+              href="/community-coaching"
+              className="btn-ghost"
+              style={{ color: 'rgba(255,255,255,0.85)', borderColor: 'rgba(255,255,255,0.25)' }}
+            >
+              Explore the Programme
+            </Link>
+          </div>
+
+          {/* Three programme facts */}
+          <div className="flex flex-wrap gap-6 text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
+            <span>9 Adaptable Workshops</span>
+            <span>18-Month Journey</span>
+            <span>Accredited Learning</span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

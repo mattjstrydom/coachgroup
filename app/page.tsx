@@ -100,81 +100,129 @@ export default function HomePage() {
       <HeroSection />
 
       {/* About the programme */}
-      <section className="bg-stone-100 py-24">
+      <section className="py-28" style={{ background: 'var(--parchment)' }}>
         <div className="page-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-            <div className="max-w-2xl">
-              <h2 className="text-5xl text-slate-900">
+          <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div data-reveal>
+              <h2
+                className="font-display"
+                style={{ fontSize: 'clamp(2.2rem,5vw,3.5rem)', fontWeight: 400, color: 'var(--ink)' }}
+              >
                 Coaching and mentoring designed for real South African communities.
               </h2>
-              <p className="mt-6 text-lg leading-8 text-slate-600">
+              <p className="mt-7 text-lg leading-8" style={{ color: 'var(--stone)' }}>
                 Coach Group&apos;s Community Coaching Programme equips people to get involved,
                 make a difference, and take responsibility for the development of their own
                 communities — through structured coaching, mentoring, and real-world projects.
               </p>
             </div>
 
-            <div className="divide-y divide-slate-200">
-              {valuePillars.map((pillar) => (
-                <div key={pillar.num} className="flex gap-8 py-7 first:pt-0 last:pb-0">
-                  <span className="mt-1 shrink-0 text-xs font-semibold tabular-nums text-amber-600">
+            <div className="divide-y" style={{ borderColor: 'rgba(13,12,7,0.1)' }}>
+              {valuePillars.map((pillar, i) => (
+                <div
+                  key={pillar.num}
+                  className="flex gap-8 py-7 first:pt-0 last:pb-0"
+                  data-reveal
+                  style={{ animationDelay: `${i * 80}ms` } as React.CSSProperties}
+                >
+                  <span className="mt-1 shrink-0 text-xs font-semibold tabular-nums" style={{ color: 'var(--gold)' }}>
                     {pillar.num}
                   </span>
                   <div>
-                    <h3 className="text-xl text-slate-900">{pillar.title}</h3>
-                    <p className="mt-2 text-base leading-7 text-slate-600">{pillar.text}</p>
+                    <h3 className="text-xl font-medium" style={{ color: 'var(--ink)' }}>{pillar.title}</h3>
+                    <p className="mt-2 text-base leading-7" style={{ color: 'var(--stone)' }}>{pillar.text}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {programmeHighlights.map((item) => (
-              <CoachingProgramCard key={item.title} {...item} />
+          <div className="mt-20 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {programmeHighlights.map((item, i) => (
+              <div data-reveal key={item.title} style={{ animationDelay: `${i * 100}ms` } as React.CSSProperties}>
+                <CoachingProgramCard {...item} />
+              </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Terracotta pull-quote signature moment */}
+      <section className="py-24 overflow-hidden" style={{ background: 'var(--terracotta)' }}>
+        <div className="page-shell">
+          <blockquote
+            data-reveal
+            className="font-display"
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 3.75rem)',
+              fontWeight: 300,
+              fontStyle: 'italic',
+              lineHeight: 1.15,
+              color: 'white',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            &ldquo;The methods of training are unique and respect our day-to-day lifestyle and different cultures.&rdquo;
+          </blockquote>
+          <p
+            data-reveal="fade"
+            className="mt-8 text-sm font-medium uppercase tracking-[0.22em]"
+            style={{ color: 'rgba(255,255,255,0.55)' }}
+          >
+            Student · Community Coaching Programme
+          </p>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="bg-[#f6f2ec] py-24">
+      <section className="py-24" style={{ background: 'var(--surface)' }}>
         <div className="page-shell">
-          <div className="max-w-3xl">
-            <h2 className="text-5xl text-slate-900">Here&apos;s what our students say.</h2>
-          </div>
+          <h2
+            data-reveal
+            className="max-w-xl font-display"
+            style={{ fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 400, color: 'var(--ink)' }}
+          >
+            Here&apos;s what our students say.
+          </h2>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <TestimonialCard
-                key={testimonial.id}
-                quote={testimonial.quote}
-                author={testimonial.author}
-              />
+          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {testimonials.map((testimonial, i) => (
+              <div data-reveal key={testimonial.id} style={{ animationDelay: `${i * 100}ms` } as React.CSSProperties}>
+                <TestimonialCard quote={testimonial.quote} author={testimonial.author} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why it works */}
-      <section className="overflow-hidden bg-slate-900 py-24 text-white">
-        <div className="page-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <h2 className="text-5xl">A practical model that turns learning into action.</h2>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
+      {/* Why it works — dark section */}
+      <section className="py-28" style={{ background: 'var(--ink)', color: 'white' }}>
+        <div className="page-shell grid gap-16 lg:grid-cols-[0.9fr_1.1fr]">
+          <div data-reveal>
+            <h2
+              className="font-display"
+              style={{ fontSize: 'clamp(2rem,4.5vw,3.25rem)', fontWeight: 400 }}
+            >
+              A practical model that turns learning into action.
+            </h2>
+            <p className="mt-6 text-lg leading-8" style={{ color: 'rgba(255,255,255,0.55)' }}>
               Nine adaptable workshops, an accredited learning path, and a community-based support
-              model work together to make the content relevant, practical, and lasting — built
-              specifically for the South African context.
+              model work together to make the content relevant, practical, and lasting.
             </p>
           </div>
 
-          <div className="flex flex-col divide-y divide-white/10">
+          <div className="flex flex-col divide-y" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
             {outcomes.map((outcome, i) => (
-              <div key={i} className="flex gap-6 py-6 first:pt-0 last:pb-0">
-                <span className="mt-1 shrink-0 text-xs font-semibold tabular-nums text-amber-400/70">
+              <div
+                key={i}
+                className="flex gap-6 py-7 first:pt-0 last:pb-0"
+                data-reveal
+                style={{ animationDelay: `${i * 80}ms` } as React.CSSProperties}
+              >
+                <span className="mt-1 shrink-0 text-xs font-semibold tabular-nums" style={{ color: 'var(--gold)' }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <p className="text-base leading-7 text-slate-200">{outcome}</p>
+                <p className="text-base leading-7" style={{ color: 'rgba(255,255,255,0.7)' }}>{outcome}</p>
               </div>
             ))}
           </div>

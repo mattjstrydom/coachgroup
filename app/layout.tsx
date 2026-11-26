@@ -7,7 +7,8 @@ import '@/styles/globals.css';
 const displayFont = Cormorant_Garamond({
   subsets: ['latin'],
   variable: '--font-display',
-  weight: ['500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
 });
 
 const bodyFont = Manrope({
@@ -69,7 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
-      <body className="min-h-screen bg-stone-50 text-slate-900 antialiased">
+      <body className="min-h-screen bg-parchment text-ink antialiased">
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-1 pt-20">{children}</main>

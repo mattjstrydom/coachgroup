@@ -43,85 +43,136 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="bg-[#efe6da] py-24">
-      <div className="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="pt-4">
-          <h2 className="max-w-md text-5xl text-slate-900">
+    <section className="py-28" style={{ background: 'var(--surface)' }}>
+      <div className="page-shell grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="pt-2" data-reveal>
+          <h2
+            className="font-display"
+            style={{ fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 400, color: 'var(--ink)', lineHeight: 1.1 }}
+          >
             Let&apos;s build the next chapter together.
           </h2>
-          <p className="mt-6 max-w-md text-lg leading-8 text-slate-600">
+          <p className="mt-7 max-w-sm text-lg leading-8" style={{ color: 'var(--stone)' }}>
             Reach out if you want to join the programme, bring Coach Group into your community,
             or start a conversation about future corporate coaching.
           </p>
 
-          <div className="mt-10 rounded-[2rem] border border-slate-200 bg-white/60 p-6">
-            <p className="text-sm text-slate-500">Or email us directly</p>
-            <p className="mt-2 text-xl text-slate-900">info@coachgroup.co.za</p>
+          <div
+            className="mt-10 rounded-2xl p-6"
+            style={{ background: 'white', border: '1px solid rgba(13,12,7,0.08)' }}
+          >
+            <p className="text-xs font-medium uppercase tracking-[0.2em]" style={{ color: 'var(--stone)' }}>
+              Or email us directly
+            </p>
+            <p className="mt-3 text-xl font-medium" style={{ color: 'var(--ink)' }}>
+              info@coachgroup.co.za
+            </p>
           </div>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_8px_32px_rgba(15,23,42,0.06)] md:p-10"
+          className="rounded-2xl p-8 md:p-10"
+          style={{
+            background: 'white',
+            border: '1px solid rgba(13,12,7,0.08)',
+            boxShadow: '0 4px 24px rgba(13,12,7,0.05)',
+          }}
+          data-reveal
         >
           <div className="grid gap-6">
             <div>
-              <label className="mb-2 flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] text-slate-600">
-                <User size={16} /> Full Name
+              <label
+                className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em]"
+                style={{ color: 'var(--stone)' }}
+              >
+                <User size={14} /> Full Name
               </label>
               <input
                 {...register('name')}
                 type="text"
-                className="w-full rounded-2xl border border-slate-200 bg-stone-50 px-5 py-4 text-slate-900 outline-none transition focus:border-amber-500 focus:bg-white"
+                className="w-full rounded-xl border px-5 py-4 text-sm outline-none transition"
+                style={{
+                  borderColor: 'rgba(13,12,7,0.12)',
+                  background: 'var(--parchment)',
+                  color: 'var(--ink)',
+                }}
+                onFocus={e => { e.currentTarget.style.borderColor = 'var(--gold)'; e.currentTarget.style.background = 'white'; }}
+                onBlur={e => { e.currentTarget.style.borderColor = 'rgba(13,12,7,0.12)'; e.currentTarget.style.background = 'var(--parchment)'; }}
                 placeholder="Your full name"
               />
-              {errors.name ? <p className="mt-2 text-sm text-red-500">{errors.name.message}</p> : null}
-            </div>
-
-            <div>
-              <label className="mb-2 flex items-center gap-2 text-sm font-medium uppercase tracking-[0.2em] text-slate-600">
-                <Mail size={16} /> Email Address
-              </label>
-              <input
-                {...register('email')}
-                type="email"
-                className="w-full rounded-2xl border border-slate-200 bg-stone-50 px-5 py-4 text-slate-900 outline-none transition focus:border-amber-500 focus:bg-white"
-                placeholder="your@email.com"
-              />
-              {errors.email ? (
-                <p className="mt-2 text-sm text-red-500">{errors.email.message}</p>
+              {errors.name ? (
+                <p className="mt-2 text-sm" style={{ color: 'var(--terracotta)' }}>{errors.name.message}</p>
               ) : null}
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium uppercase tracking-[0.2em] text-slate-600">
+              <label
+                className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em]"
+                style={{ color: 'var(--stone)' }}
+              >
+                <Mail size={14} /> Email Address
+              </label>
+              <input
+                {...register('email')}
+                type="email"
+                className="w-full rounded-xl border px-5 py-4 text-sm outline-none transition"
+                style={{
+                  borderColor: 'rgba(13,12,7,0.12)',
+                  background: 'var(--parchment)',
+                  color: 'var(--ink)',
+                }}
+                onFocus={e => { e.currentTarget.style.borderColor = 'var(--gold)'; e.currentTarget.style.background = 'white'; }}
+                onBlur={e => { e.currentTarget.style.borderColor = 'rgba(13,12,7,0.12)'; e.currentTarget.style.background = 'var(--parchment)'; }}
+                placeholder="your@email.com"
+              />
+              {errors.email ? (
+                <p className="mt-2 text-sm" style={{ color: 'var(--terracotta)' }}>{errors.email.message}</p>
+              ) : null}
+            </div>
+
+            <div>
+              <label
+                className="mb-2 block text-xs font-medium uppercase tracking-[0.2em]"
+                style={{ color: 'var(--stone)' }}
+              >
                 Message
               </label>
               <textarea
                 {...register('message')}
                 rows={6}
-                className="w-full resize-y rounded-2xl border border-slate-200 bg-stone-50 px-5 py-4 text-slate-900 outline-none transition focus:border-amber-500 focus:bg-white"
+                className="w-full resize-y rounded-xl border px-5 py-4 text-sm outline-none transition"
+                style={{
+                  borderColor: 'rgba(13,12,7,0.12)',
+                  background: 'var(--parchment)',
+                  color: 'var(--ink)',
+                }}
+                onFocus={e => { e.currentTarget.style.borderColor = 'var(--gold)'; e.currentTarget.style.background = 'white'; }}
+                onBlur={e => { e.currentTarget.style.borderColor = 'rgba(13,12,7,0.12)'; e.currentTarget.style.background = 'var(--parchment)'; }}
                 placeholder="Tell us how you'd like to get involved..."
               />
               {errors.message ? (
-                <p className="mt-2 text-sm text-red-500">{errors.message.message}</p>
+                <p className="mt-2 text-sm" style={{ color: 'var(--terracotta)' }}>{errors.message.message}</p>
               ) : null}
             </div>
 
             {submitError ? (
-              <p className="rounded-2xl bg-red-50 px-5 py-4 text-sm text-red-700">{submitError}</p>
+              <p className="rounded-xl px-5 py-4 text-sm" style={{ background: 'rgba(191,72,38,0.08)', color: 'var(--terracotta)' }}>
+                {submitError}
+              </p>
             ) : null}
+
             {submitted ? (
-              <p className="rounded-2xl bg-green-50 px-5 py-4 text-sm text-green-800">
+              <p className="rounded-xl px-5 py-4 text-sm" style={{ background: 'rgba(13,12,7,0.05)', color: 'var(--stone)' }}>
                 Thank you — your message has been received. We&apos;ll be in touch soon.
               </p>
             ) : (
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-slate-800 disabled:opacity-70"
+                className="btn-primary disabled:opacity-60"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? 'Sending…' : 'Send Message'}
               </button>
             )}
           </div>
